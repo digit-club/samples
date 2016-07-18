@@ -20,6 +20,12 @@ public class Main {
             boolean marked = MyClass.class.isAnnotationPresent(MyMarker.class);
             System.out.println(MyClass.class.getSimpleName() + (marked ? " is " : " is not ") + "marked with "
                     + MyMarker.class.getSimpleName() + " annotation.");
+
+            MyAnnotation[] myAnnotations = MyClass.class.getAnnotationsByType(MyAnnotation.class);
+            System.out.println("Annotations of type : " + MyAnnotation.class.getSimpleName());
+            for (MyAnnotation annotation : myAnnotations) {
+                System.out.println(annotation.name() + " : " + annotation.number());
+            }
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
