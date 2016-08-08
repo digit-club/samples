@@ -3,23 +3,24 @@ package app;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main {
 
-    public static final String DB_DIR = "mydb";
+    public static final String DB_DIR = "G:\\digit\\samples\\Exceptions\\mydb";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Connection connection = null;
         try {
             connection = getConnection();
-            removeDerbyFiles();
-        } catch (SQLException | IOException e) {
+            closeConnection(connection);
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            closeConnection(connection);
+            removeDerbyFiles();
         }
     }
 
@@ -44,6 +45,7 @@ public class Main {
             delete(derbyDir);
             delete(derbyLog);
         } catch (FileNotFoundException e) {
+            //chained exceptions
             System.out.println(e.getMessage());
             throw new RemoveDerbyFilesException(e);
         }

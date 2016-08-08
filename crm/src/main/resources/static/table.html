@@ -1,0 +1,55 @@
+<div>
+	<div class="row">
+		<div class="col-md-12 menuPanel">
+			<form>
+				<div class="btn-toolbar buttonGroup col-md-6">
+					<button class="btn typeItems" ng-repeat="type in eventButtons" ng-click="setCheckedType($index)">
+						{{type}}</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- merchants listGroupEvents -->
+		<div class="green col-md-2 marginLess">
+			<div class="row marginLess bordered">
+				<div class="col-md-2 marginLess">#</div>
+				<div class="col-md-10 marginLess">Name</div>
+			</div>
+
+			<div class="row col-md-12 marginLess" ng-repeat="tribe in tribes">
+				<div ng-repeat="region in tribe.regions">
+					<div ng-repeat="group in region.groups">
+						<div class="marginLess">
+							<div class="marginLess tableRow bordered" ng-repeat="p in group.merchants | orderBy : 'categoryId' track by $index" ng-style="backGround(p.categoryId)">
+								<div class="col-md-2 marginLess">{{$index+1}}</div>
+								<div class="col-md-10 marginLess">{{p.firstName}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    	<div class="col-md-10 cells marginLess">
+	        <div class="row col-md-12">
+	            <div class="headerCell green bordered" ng-repeat="d in dates">{{getMiniDate(d)}}</div>
+	        </div>
+
+	        <!-- Dates -->
+	        <div ng-repeat="tribe in tribes" class="row col-md-12">
+				<div ng-repeat="region in tribe.regions">
+					<div ng-repeat="group in region.groups">
+						<div class="tableRow" ng-repeat="p in group.merchants | orderBy : 'categoryId'" ng-mouseover="">
+							<div class="cell bordered" ng-repeat="d in dates" ng-click="saveEvent(p.id, group.id, d)">
+								<div class="event marginLess col-md-12" ng-repeat="ev in getEventsForDate(p.id, d)"
+									 style="background-color:{{eventTypesStyles[ev.typeId]}};height:{{100/eventsForDate.length+'%'}}"
+									 ng-click="removeEvent(p.id, ev)">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	        </div>
+   		</div>
+	</div>
+</div>
