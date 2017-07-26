@@ -2,28 +2,30 @@ Servlets:
 
 (good article) http://java-course.ru/student/book1/servlet/
 
-TCP/IP - HTTP
-
 1) download tomcat 8:
 http://tomcat.apache.org/download-80.cgi
 
 run tomcat:
-sh <TOMCAT_HOME>/bin/catalina.sh run
+sh <TOMCAT_HOME>/bin/catalina.sh run (this way you see logs in console and can easily stop tomcat)
 
-check 8080 port
+check 8080 port. Starter page appearance means that you set up tomcat successfully.
 
-2) create project. Create pakage servlets with class MyExampleServlet extended from HttpServlet
-- add library for servlet-api
+Stop it using Ctrl+Z (C) combination.
 
-3) compile 
+2) create project from cloned repo. Add library servlet-api: select File -> Project Structure -> Project Settings -> Libraries -> '+' -> Java -> chose from <TOMCAT_HOME>/lib/servlet-api.jar
 
-4) copy out/production/ProjectName -> servlets/MyExampleServlet.class file to /webapps/my-server/WEB-INF/classes
+3) compile project
 
-5) add mapping to web.xml
+How to deploy:
 
-update /webapps/examples/WEB-INF/web.xml with the following
+4) Create directory structure <TOMCAT_HOME>/webapps/my-server/WEB-INF/classes
 
-	<servlet>
+5) copy out/production/Servlets/servlets directory (servlets/MyExampleServlet.class) into -> <TOMCAT_HOME>/webapps/my-server/WEB-INF/classes
+
+6) create file <TOMCAT_HOME>/webapps/my-server/WEB-INF/web.xml with the following
+
+<web-app>
+    <servlet>
         <servlet-name>Example</servlet-name>
         <servlet-class>servlets.MyExampleServlet</servlet-class>
     </servlet>
@@ -32,6 +34,10 @@ update /webapps/examples/WEB-INF/web.xml with the following
         <servlet-name>Example</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+</web-app>
 
+Or just copy it from resources/web.xml
 
-6) hit http://localhost:8080/my-server/hello
+7) Start tomcat
+
+8) hit http://localhost:8080/my-server/hello
