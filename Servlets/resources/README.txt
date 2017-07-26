@@ -1,7 +1,5 @@
 Servlets:
 
-(good article) http://java-course.ru/student/book1/servlet/
-
 1) download tomcat 8:
 http://tomcat.apache.org/download-80.cgi
 
@@ -41,3 +39,8 @@ Or just copy it from resources/web.xml
 7) Start tomcat
 
 8) hit http://localhost:8080/my-server/hello
+
+
+For example and description follow this link: http://java-course.ru/student/book1/servlet/
+
+
