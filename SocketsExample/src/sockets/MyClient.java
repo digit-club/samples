@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class MyClientSocket {
+public class MyClient {
 
     private static final int PORT = 1992;
     private static final String HOST = "localhost";
@@ -13,7 +13,6 @@ public class MyClientSocket {
     public static void main(String[] args) throws IOException {
 
         try (Socket socket = new Socket(HOST, PORT);
-
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())))
         {
             String message = "";
