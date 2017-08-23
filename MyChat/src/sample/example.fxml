@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <HBox layoutX="22.0" layoutY="4.0" prefHeight="486.0" prefWidth="573.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="472.0" prefWidth="371.0">
+               <children>
+                  <TextArea fx:id="chatBox" accessibleRole="TEXT" editable="false" prefHeight="315.0" prefWidth="371.0" />
+                  <TextField fx:id="messageBox" alignment="TOP_LEFT" layoutY="319.0" onAction="#onEnter" prefHeight="164.0" prefWidth="371.0" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</Pane>
