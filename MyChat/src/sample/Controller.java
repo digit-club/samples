@@ -36,7 +36,7 @@ public class Controller {
     public void onEnter(ActionEvent event) throws IOException {
         String message = messageBox.getCharacters().toString();
 
-        db.add(message);
+        db.add("Me: " + message);
         messageBox.clear();
 
         chatBox.setText(getDbText());
