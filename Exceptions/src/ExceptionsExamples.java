@@ -1,16 +1,20 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExceptionsExamples {
 
     public static void main(String[] args) {
     }
 
-    // checked
+    /**
+     *
+     * @throws FileNotFoundException
+     */
     public static void fileNotFoundExample() throws FileNotFoundException {
-        File file = new File("D://file.txt");
-        FileReader fileReader = new FileReader(file);
+        FileReader fileReader = new FileReader(new File("D://file.txt"));
     }
 
     //error, unchecked
@@ -31,6 +35,10 @@ public class ExceptionsExamples {
     }
 
     //runtime, unchecked
+
+    /**
+     * @throws ArithmeticException
+     */
     public static void zeroDevisionExample(){
         int i = 10 / 0;
     }
