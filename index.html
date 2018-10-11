@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DigIT iCalc</title>
+	<style type="text/css">
+		.icalc {
+			width: 200px;
+			margin: 0 auto;
+		}
+		.icalc h1 {
+			text-align: center;
+		}
+		.input {
+			width: 170px;
+			margin: 14px;
+		}
+		.history {
+			margin: 14px;
+			color: grey;
+		}
+		.action-button {
+			font-size: 30px;
+			margin: 14px;
+		}
+		.operation {
+			width: 70px;
+			height: 60px;
+		}
+		.equal {
+			height: 30px;
+			width: 172px;
+			line-height: 30px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="icalc">
+		<h1>iCalc</h1>
+		<div class="history">2 + 3</div>
+		<input type="number" class="input" id="input">
+
+		<button class="action-button operation">+</button>
+		<button class="action-button operation">-</button>
+		<button class="action-button operation">*</button>
+		<button class="action-button operation">/</button>
+
+		<button class="action-button equal">=</button>
+
+	</div>
+
+	<script type="text/javascript" src="./icalc.js"></script>
+</body>
+</html>
