@@ -29,24 +29,24 @@
 		.equal {
 			height: 30px;
 			width: 172px;
-			line-height: 30px;
+			line-height: 20px;
+			font-size: 20px;
 		}
-
 	</style>
 </head>
 <body>
 
 	<div class="icalc">
 		<h1>iCalc</h1>
-		<div class="history">2 + 3</div>
-		<input type="number" class="input" id="input">
+
+		<input type="text" class="input" id="input" placeholder="">
 
 		<button class="action-button operation">+</button>
 		<button class="action-button operation">-</button>
 		<button class="action-button operation">*</button>
 		<button class="action-button operation">/</button>
 
-		<button class="action-button equal">=</button>
+		<button class="action-button equal" id="equal">=</button>
 
 	</div>
 

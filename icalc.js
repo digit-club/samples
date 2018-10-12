@@ -13,20 +13,50 @@
 // Выполняемая функция
 
 
-console.log('Yo! DigIT!');
-
 var plus = document.getElementsByClassName('operation')[0];
-var firstValue = 0;
+var substract = document.getElementsByClassName('operation')[1];
+var multiply = document.getElementsByClassName('operation')[2];
+var divide = document.getElementsByClassName('operation')[3];
+var input = document.getElementById('input');
+var equal = document.getElementById('equal');
 
-plus.onclick = function () {
-	var input = document.getElementById('input');
+var firstValue = null;
+var operation = null;
+var result = null;
 
-	if (firstValue != '') {
-		alert(Number.parseInt(firstValue) + Number.parseInt(input.value))
-	} else {
-		firstValue = input.value;
-		input.value = '';
-	} 
 
-	
+function action(op) {
+	return function() {
+		firstValue = Number.parseFloat(input.value);
+		operation = op;
+		input.value = null;
+		input.placeholder = String(firstValue) + ' ' + op
+	}
+}
+
+plus.onclick = action('+');
+substract.onclick = action('-');
+multiply.onclick = action('*');
+divide.onclick = action('/');
+
+
+equal.onclick = function () {
+	secondValue = Number.parseFloat(input.value);
+
+	switch (operation) {
+		case '+':
+			result = firstValue + secondValue;
+			break;
+		case '-':	
+			result = firstValue - secondValue;
+			break;
+		case '*':
+			result = firstValue * secondValue;
+			break;
+		case '/':
+			result = firstValue / secondValue;
+			break;
+	}
+
+	input.value = result;
 }
