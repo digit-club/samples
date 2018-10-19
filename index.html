@@ -2,54 +2,59 @@
 <html>
 <head>
 	<title>DigIT iCalc</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
 	<style type="text/css">
-		.icalc {
-			width: 200px;
-			margin: 0 auto;
+		.spacing {
+			margin: 5px 0;
 		}
-		.icalc h1 {
-			text-align: center;
-		}
-		.input {
-			width: 170px;
-			margin: 14px;
-		}
-		.history {
-			margin: 14px;
-			color: grey;
-		}
-		.action-button {
-			font-size: 30px;
-			margin: 14px;
-		}
-		.operation {
-			width: 70px;
-			height: 60px;
-		}
-		.equal {
-			height: 30px;
-			width: 172px;
-			line-height: 20px;
-			font-size: 20px;
+		h1 {
+			color: #6c757d;
 		}
 	</style>
+
 </head>
 <body>
-
-	<div class="icalc">
-		<h1>iCalc</h1>
-
-		<input type="text" class="input" id="input" placeholder="">
-
-		<button class="action-button operation">+</button>
-		<button class="action-button operation">-</button>
-		<button class="action-button operation">*</button>
-		<button class="action-button operation">/</button>
-
-		<button class="action-button equal" id="equal">=</button>
-
+	<div class="container">
+		<div class="row">
+			<div class="col-4"></div>
+			<div class="col-8">
+				<h1>iCalc 2.0</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4"></div>
+			<div class="col-4">
+				<div class="row">
+					<div class="col-10 offset-1">
+						<input type="text" class="form-control" id="input" placeholder="">
+					</div>
+				</div>
+				<div class="row spacing">
+					
+					<div class="col-6">
+						<button type="button" class="substract btn btn-secondary btn-block">-</button>
+					</div>
+					<div class="col-6">
+						<button type="button" class="plus btn btn-secondary btn-block">+</button>
+					</div>
+				</div>
+				<div class="row spacing">
+					<div class="col-6">
+						<button type="button" class="multiply btn btn-secondary btn-block">*</button>
+					</div>
+					<div class="col-6">
+						<button type="button" class="divide btn btn-secondary btn-block">/</button>
+					</div>
+				</div>
+				<div class="row spacing">
+					<div class="col-12">
+						<button type="button" id="equal" class="btn btn-primary btn-block">=</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script type="text/javascript" src="./icalc.js"></script>
 </body>
 </html>

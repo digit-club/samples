@@ -13,50 +13,58 @@
 // Выполняемая функция
 
 
-var plus = document.getElementsByClassName('operation')[0];
-var substract = document.getElementsByClassName('operation')[1];
-var multiply = document.getElementsByClassName('operation')[2];
-var divide = document.getElementsByClassName('operation')[3];
-var input = document.getElementById('input');
-var equal = document.getElementById('equal');
+// var plus = document.getElementsByClassName('operation')[0];
+$(function(){
+	var plus = $('.plus');
+	var substract = $('.substract');
+	var divide = $('.divide');
+	var multiply = $('.multiply');
+	var input = $('#input');
+	var equal = $('#equal');
 
-var firstValue = null;
-var operation = null;
-var result = null;
-
-
-function action(op) {
-	return function() {
-		firstValue = Number.parseFloat(input.value);
-		operation = op;
-		input.value = null;
-		input.placeholder = String(firstValue) + ' ' + op
-	}
-}
-
-plus.onclick = action('+');
-substract.onclick = action('-');
-multiply.onclick = action('*');
-divide.onclick = action('/');
+	var firstValue = null;
+	var operation = null;
+	var result = null;
 
 
-equal.onclick = function () {
-	secondValue = Number.parseFloat(input.value);
-
-	switch (operation) {
-		case '+':
-			result = firstValue + secondValue;
-			break;
-		case '-':	
-			result = firstValue - secondValue;
-			break;
-		case '*':
-			result = firstValue * secondValue;
-			break;
-		case '/':
-			result = firstValue / secondValue;
-			break;
+	function action(op) {
+			firstValue = Number.parseFloat(input.val());
+			operation = op;
+			input.val(null);
+			input.attr('placeholder', String(firstValue) + ' ' + op);
 	}
 
-	input.value = result;
-}
+	plus.click(function(){
+		action('+');
+	});
+	substract.click(function(){
+		action('-');
+	});
+	multiply.click(function(){
+		action('*');
+	});
+	divide.click(function(){
+		action('/');
+	});
+
+	equal.click(function () {
+		secondValue = Number.parseFloat(input.val());
+
+		switch (operation) {
+			case '+':
+				result = firstValue + secondValue;
+				break;
+			case '-':	
+				result = firstValue - secondValue;
+				break;
+			case '*':
+				result = firstValue * secondValue;
+				break;
+			case '/':
+				result = firstValue / secondValue;
+				break;
+		}
+
+		input.val(result);
+	});
+});
