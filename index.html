@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DigIT iCalc</title>
+	<title>DigIT People</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="./css/bootstrap.css">
 	<style type="text/css">
-		.spacing {
-			margin: 5px 0;
-		}
-		h1 {
-			color: #6c757d;
-		}
 	</style>
-
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-4"></div>
 			<div class="col-8">
-				<h1>iCalc 2.0</h1>
+				<h1>DigIT People</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-4"></div>
 			<div class="col-4">
-				<div class="row">
-					<div class="col-10 offset-1">
-						<input type="text" class="form-control" id="input" placeholder="">
-					</div>
-				</div>
-				<div class="row spacing">
-					
-					<div class="col-6">
-						<button type="button" class="substract btn btn-secondary btn-block">-</button>
-					</div>
-					<div class="col-6">
-						<button type="button" class="plus btn btn-secondary btn-block">+</button>
-					</div>
-				</div>
-				<div class="row spacing">
-					<div class="col-6">
-						<button type="button" class="multiply btn btn-secondary btn-block">*</button>
-					</div>
-					<div class="col-6">
-						<button type="button" class="divide btn btn-secondary btn-block">/</button>
-					</div>
-				</div>
-				<div class="row spacing">
-					<div class="col-12">
-						<button type="button" id="equal" class="btn btn-primary btn-block">=</button>
-					</div>
-				</div>
+				<form action="/">
+					<div class="form-group row">
+						<label class="col-sm-6 col-form-label" for="name">Позывной</label>
+						<div class="col-sm-6">
+	    					<input id="name" type="text" class="form-control" placeholder="Вовка">
+	    				</div>	
+	    			</div>
+	    			<div class="form-group row">
+						<label class="col-sm-6 col-form-label" for="loves-shabbat">Любит шабат</label>
+						<div class="col-sm-6">
+	    					<input id="loves-shabbat" type="checkbox" class="form-control">
+	    				</div>	
+	    			</div>
+	    			<div class="form-group">
+	    				<button type="submit" class="btn btn-primary mb-2">Сохранить</button>
+	    			</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<table class="table" id="people-table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Позывной</th>
+							<th>Любит шаббат</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr>
+							<td>1</td>
+							<td>Олег</td>
+							<td>Да</td>
+						</tr> -->
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script type="text/javascript" src="./icalc.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./main.js"></script>
 </body>
 </html>
